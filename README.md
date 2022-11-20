@@ -15,7 +15,7 @@
  > <img src="/blurred_dataset.png" width="500">
  - The <b>confidential</b> dataset includes ≈200 psoriasis patients undergoing UVB phototherapy in Tyne and Wear, England.
  - The baseline features include biological metrics including age, sex, gender, baseline MED, skin type, presence of psoriasis family history, and more.
- - The time-series features include weekly PASI scores after every week of treatment. PASI = psoriasis area and severity index; an evaluation of psoriasis severity ranging from 0 (no disease) to 72 (severe disease).
+ - The time-series features include weekly PASI scores after every week of treatment. PASI = psoriasis area and severity index; a subjective evaluation of psoriasis severity ranging from 0 (no disease) to 72 (severe disease).
  - In the classification models, the target feature is a class-label indicative of treatment success (computed by other machine learning models).
  - In the regression models, the target feature is the end of treatment PASI score.
  
@@ -137,7 +137,25 @@ print('The average f1 score across the iterations is ' + str(h/50000))
   </p> 
   <br />
   
- - The regressor models did not perform as well, even with the addition of PASI treatment weeks:
+ - The regressor models did not perform as well, even with the addition of PASI treatment weeks: <br />
+ <p align = "center">
+ <img src="/graph4.png" width="500"> <br />
+  </p> 
+  
+  ## Conclusion
+  - The results section above explains why the inclusion of weekly PASI scores was compulsory to achieve feasible results, but does not dismiss that this was not the preferred route.  
+  - I was surprised that the "optimal" features selected from the statistical analyses and biological investigations actually hindered model performance.  It wasn't until I approached model design on a trial and error basis that I started seeing the results I had hoped for.  This taught that although statistical analyses are important components in machine learning, sometimes the best results can be obtained by disregarding some statistical components and trying
+them anyways.
+### Further Research Prospects in This Field
+- This project produced excellent models that could predict UVB phototherapy outcomes, albeit through weekly treatment scores, whose inclusion wasn't initally encouraged.
+- The poor model performance through the baseline features demonstrated that they were not useful in predicting UVB phototherapy treatment outcome, despite biological trends and patterns associated with the disease.  Perhaps further biological research in psoriasis could explore more quantitative baseline integumentary interactions that could benefit both patients and machine learning models.
+- This dataset, as with many medical data repositories, suffered from a small sample size.  Combining datasets like these would introduce bias, as the PASI measurement method is somewhat different depending on the hospital.  Perhaps this measurement could be computerised through machine learning to offer a more revolutionized and consistent scoring system across hospitals and healthcare centres.  This would allow for the expansion of dataset sizes through combination of different hospital patient data without introducing bias. 
+- These larger datasets, in combination with other baseline integumentary attribute scores, could be the pivotal amendment that revolutionises UVB phototherapy treatment predictions through machine learning.   
+
+
+
+
+
   
 
 
