@@ -32,6 +32,7 @@
 **Model Execution**
 - The features went through the Random Forest, Support Vector Machine, and XGBoost algorithms using 5-fold cross validation and `GridSearchCV()` for hyperparameter tuning.  Below is an example of GridSearchCV(): <br />
      <br />
+ <img src="/5-fold_cross_validation.png" width="500">
      
 `import pandas as pd` <br />
 `from sklearn.ensemble import RandomForestClassifier` <br />
@@ -48,11 +49,15 @@
 
 `n_estimators = [int(x) for x in np.linspace(start = 10, stop = 250, num = 10)]`<br />
 `max_features = ['auto', 'sqrt']`<br />
+`min_samples_split = [2, 5]` <br/>
+`min_samples_leaf = [1, 2]` <br />
 `max_depth = [2, 4, 8, 16, 32, None]`<br />
 `bootstrap = [True, False]`<br />
 
 `param_grid = {'n_estimators': n_estimators,
              'max_features': max_features,
+             'min_samples_split': min_samples_split,
+             'min_samples_leaf': [1, 2],
               'max_depth': max_depth,
               'bootstrap': bootstrap}` <br />
               
@@ -63,7 +68,11 @@
 `BestModel.fit(X_train, y_train)` <br/>
 
 `print(BestModel.score(X_train, y_train))` <br/>
-> 1.0
+> 1.0 <br />
+
+
+Example of 5-fold cross validation with the SVM algorithm: <br />
+
               
               
 
