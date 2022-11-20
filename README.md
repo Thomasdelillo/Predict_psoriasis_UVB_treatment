@@ -38,8 +38,9 @@ g.fig.suptitle("        Pairplot PASI Weeks 0-7")
 - The features went through the Random Forest, Support Vector Machine, and XGBoost algorithms using 5-fold cross validation and `GridSearchCV()` for hyperparameter tuning.  
 
 ### GridSearchCV()
-     
+  <p align = "center">
  <img src="/5-fold_cross_validation.png" width="500">
+  </p>
  
  ```python
 import pandas as pd
@@ -83,7 +84,9 @@ print(BestModel.score(X_train, y_train))
 - Further GridSearchCV() methods only tuned 1 or 2 parameters with more appropriate results.  
 
 ### 5-Fold Cross Validation with the SVM Algorithm: <br />
+<p align = "center">
 <img src="/svm.png" width="500"> <br />
+  </p>
 ```python
 from sklearn import svm
 from sklearn.model_selection import KFold, StratifiedKFold, GroupKFold, RepeatedKFold
@@ -114,11 +117,20 @@ print('The average f1 score across the iterations is ' + str(h/50000))
 ```
 
 ## Results
-- Each classification model was analyzed using accuracy, precision, recall, and F1 scores.  The last 3 were especially important as the classes were imbalanced as seen below. <br />
+- Each classification model was analyzed using accuracy, precision, recall, and F1 scores.  The last 3 were especially important as the classes were imbalanced as seen below: <br />
+<p align = "center">
 <img src="/Imbalanced%20Classes.png" width="300"> <br />
+</p> 
+<br />
 - The <b>baseline features</b> alone did not generate suitable models to predict UVB phototherapy outcomes: the accuracies reached 60-70%, but their complementary confidence metrics (precision, recall, and F1 scores) fell between 40 and 50%, indicating that model performance was compromised by the dataset's imbalanced classes.
-- Surprisingly, the best models did not include any baseline biological features, but rather only the PASI treatment scores, where even addition of the first week PASI scores increased performance considerably.  The graph below demonstrates this, where the x-axis is the successive week by week inclusion of PASI treatment scores.  0 = week 0, 1 = week 0 + 1, 2 = 0 + 1 + 2, etc.
-- 
+- Surprisingly, the best models across all algorithms did not include any baseline biological features, but rather only the PASI treatment scores, where even addition of the first week PASI scores increased performance considerably.  The graph below demonstrates this, where the x-axis is the successive week by week inclusion of PASI treatment scores.  0 = week 0, 1 = week 0 + 1, 2 = 0 + 1 + 2, etc.
+<p align = "center">
+<img src="/graph1.png" width="500"> <br />
+  
+ </p>
+ <br />
+ 
+ - hi
 
               
               
