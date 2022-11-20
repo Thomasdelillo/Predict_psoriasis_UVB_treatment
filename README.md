@@ -9,6 +9,8 @@
  **The Dataset** <br />
  `import pandas as pd` <br />
  `df = pd.read_csv('psoriasis_data.csv')` <br />
- `df`
+ `df` <br />
+ ![](images/
+ 
  
  
