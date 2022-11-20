@@ -131,7 +131,15 @@ print('The average f1 score across the iterations is ' + str(h/50000))
  </p>
  <br />
  
- - hi
+ - The figure below displays a similar trend with another partition of the dataset, however the accuracy remains fairly consistent while the confidence metrics increase with the addition of more treatment weeks:
+ <p align = "center">
+ <img src="/graph3.png" width="500"> <br />
+  </p> 
+  <br />
+  
+ - The regressor models did not perform as well, even with the addition of PASI treatment weeks:
+  
+
 
               
               
