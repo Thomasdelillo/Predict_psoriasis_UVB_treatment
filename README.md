@@ -21,6 +21,7 @@
  `import seaborn as sns` <br />
 `g = sns.pairplot(df)` <br />
 `g.fig.suptitle("        Pairplot PASI Weeks 0-7")` <br />
+<img src="/pairplot">
  The latter included psorasis research to infer the features that held significant biological direction. 
  
  
