@@ -1,11 +1,11 @@
 # Predicting Psoriasis UVB Phototherapy Treatment Trajectories with Machine Learning
 
-  **Introduction**
+  ## Introduction
 - Psoriasis is a skin disease that leaves the skin red, flaky, and patchy.  UVB phototherapy treatment can reduce symptoms greatly, but there are no clinical approaches to estimate its success before starting treatment.  This means the general course of UVB phototherapy treatment usually commences with a "wait and see" approach, leading patients and practitioners through some uncertainty.
 - Machine learning and artificial intelligence can facilitate treatment plans through highly accurate and confident models, where implementation of these algorithms can predict the chances of treatment success through patient baseline measurements and early treatment responses.  
 - The goal of these models is to predict how well treatment will work for patients before they start any treatment.
  
- **The Dataset** <br />
+ ## The Dataset <br />
  ```python
  import pandas as pd
  df = pd.read_csv('psoriasis_data.csv')
@@ -19,7 +19,7 @@
  - In the classification models, the target feature is a class-label indicative of treatment success (computed by other machine learning models).
  - In the regression models, the target feature is the end of treatment PASI score.
  
- **Data Preprocessing and Feature Selection** <br />
+ ## Data Preprocessing and Feature Selection <br />
  - Commenced with a <b>statistical analysis</b> and <b>biological query</b> of the features.  The former spanned from measures of central tendency to construction of pairplots to view the interactions between PASI scores throughout treatment. <br />
  ```python
  import seaborn as sns
@@ -29,18 +29,18 @@ g.fig.suptitle("        Pairplot PASI Weeks 0-7")
 > <img src="/pairplot.jpg" width = "300"> <br />
 - This stage provided a set of significant features to integrate into the models, which <i>should</i> hypothetically yield the strongest results.
 
-**Model Engineering & Design**
+## Model Engineering & Design
 - Because the goal was to predict how well treatment would work before treatment, only significant baseline features were used initially.
 - After engineering models with only baseline features and assessing their performance, I started to incorporate the time-series PASI scores to possibly enhance the models.
 - To yield the best results, "insignificant" features from the feature selection stage were implemented through the Wrapper Method, where model error analyses drive feature selection.  In other words, different combinations of features were added/removed on a trial and error basis.
 
-**Model Execution**
+## Model Execution
 - The features went through the Random Forest, Support Vector Machine, and XGBoost algorithms using 5-fold cross validation and `GridSearchCV()` for hyperparameter tuning.  
 
 ### GridSearchCV()
      
  <img src="/5-fold_cross_validation.png" width="500">
-     
+ 
  ```python
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
@@ -53,11 +53,7 @@ X = df.drop(columns = ['CLASS'])
 y = df['CLASS']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 ```
-```python
-
-from sklearn.ensemble import RandomForestClassifier
-```
-
+ 
 ```python
 
 n_estimators = [int(x) for x in np.linspace(start = 10, stop = 250, num = 10)]
@@ -83,11 +79,14 @@ BestModel.fit(X_train, y_train)
 print(BestModel.score(X_train, y_train))
 > 1.0
 ```
+- The perfect score of 1.0 is indicative of overfitting, possibly as a result from tuning too many parameters.
+- Further GridSearchCV() methods only tuned 1 or 2 parameters with more appropriate results.  
 
-
-### Example of 5-fold cross validation with the SVM algorithm: <br />
+### 5-Fold Cross Validation with the SVM Algorithm: <br />
 <img src="/svm.png" width="500"> <br />
 ```python
+from sklearn import svm
+from sklearn.model_selection import KFold, StratifiedKFold, GroupKFold, RepeatedKFold
 model2 = svm.SVC(kernel = 'linear')
 kf = RepeatedKFold(n_splits = 5, n_repeats = 10000)
 b = 0, d = 0, f = 0, h = 0
@@ -113,6 +112,10 @@ print('The average f1 score across the iterations is ' + str(h/50000))
 > The average precision across the iterations is 0.8073479825729826
 > The average f1 score across the iterations is 0.7815214681103407
 ```
+
+## Results
+- Each classification model was analyzed using accuracy, precision, recall, and F1 scores.  The last 3 were especially important as the classes were imbalanced as seen below.
+- 
 
               
               
