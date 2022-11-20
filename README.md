@@ -10,7 +10,7 @@
  `import pandas as pd` <br />
  `df = pd.read_csv('psoriasis_data.csv')` <br />
  `df` <br />
- ![](images/
+ ![](/blurred_dataset)
  
  
  
