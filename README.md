@@ -119,13 +119,14 @@ print('The average f1 score across the iterations is ' + str(h/50000))
 ## Results
 - Each classification model was analyzed using accuracy, precision, recall, and F1 scores.  The last 3 were especially important as the classes were imbalanced as seen below: <br />
 <p align = "center">
-<img src="/Imbalanced%20Classes.png" width="300"> <br />
+<img src="/Imbalanced%20Classes.png" width="250"> <br />
 </p> 
 <br />
 - The <b>baseline features</b> alone did not generate suitable models to predict UVB phototherapy outcomes: the accuracies reached 60-70%, but their complementary confidence metrics (precision, recall, and F1 scores) fell between 40 and 50%, indicating that model performance was compromised by the dataset's imbalanced classes.
-- Surprisingly, the best models across all algorithms did not include any baseline biological features, but rather only the PASI treatment scores, where even addition of the first week PASI scores increased performance considerably.  The graph below demonstrates this, where the x-axis is the successive week by week inclusion of PASI treatment scores.  0 = week 0, 1 = week 0 + 1, 2 = 0 + 1 + 2, etc.
+- Surprisingly, the best models across all algorithms did not include any baseline biological features, but rather only the PASI treatment scores, where even addition of the first week PASI scores increased performance considerably.  The graph below demonstrates this, where the x-axis is the successive week by week inclusion of PASI treatment scores.  0 = week 0, 1 = week 0 + week 1, 2 = week 0 + week 1 + week 2, etc.
 <p align = "center">
 <img src="/graph1.png" width="500"> <br />
+<img src="/graph2.png" width="500"> <br />
   
  </p>
  <br />
