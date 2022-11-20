@@ -56,7 +56,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 ```
  
 ```python
-
 n_estimators = [int(x) for x in np.linspace(start = 10, stop = 250, num = 10)]
 max_features = ['auto', 'sqrt']
 min_samples_split = [2, 5]
@@ -65,7 +64,6 @@ max_depth = [2, 4, 8, 16, 32, None]
 bootstrap = [True, False]
 ```
 ```python
-
 param_grid = {'n_estimators': n_estimators,
              'max_features': max_features,
              'min_samples_split': min_samples_split,
@@ -87,6 +85,7 @@ print(BestModel.score(X_train, y_train))
 <p align = "center">
 <img src="/svm.png" width="500"> <br />
   </p>
+  
 ```python
 from sklearn import svm
 from sklearn.model_selection import KFold, StratifiedKFold, GroupKFold, RepeatedKFold
@@ -144,6 +143,7 @@ print('The average f1 score across the iterations is ' + str(h/50000))
   
   ## Conclusion
   - The results section above explains why the inclusion of weekly PASI scores was compulsory to achieve feasible results, but does not dismiss that this was not the preferred route.  
+  - My classification models increased previous results by 9.6%, with the best model obtaining 91% accuracy and 88% F1.
   - I was surprised that the "optimal" features selected from the statistical analyses and biological investigations actually hindered model performance.  It wasn't until I approached model design on a trial and error basis that I started seeing the results I had hoped for.  This taught that although statistical analyses are important components in machine learning, sometimes the best results can be obtained by disregarding some statistical components and trying
 them anyways.
 ### Further Research Prospects in This Field
