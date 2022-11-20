@@ -1,4 +1,4 @@
-# Predicting Psoriasis UVB Phototherapy Treatment Outcomes
+# Predicting Psoriasis UVB Phototherapy Treatment Trajectories with Machine Learning
 
   **Introduction**
 - Psoriasis is a skin disease that leaves the skin red, flaky, and patchy.  UVB phototherapy treatment can reduce symptoms greatly, but there are no clinical approaches to estimate its success before starting treatment.  This means the general course of UVB phototherapy treatment usually commences with a "wait and see" approach, leading patients and practitioners through some uncertainty.
