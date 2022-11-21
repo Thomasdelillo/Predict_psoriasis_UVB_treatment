@@ -41,6 +41,8 @@ g.fig.suptitle("        Pairplot PASI Weeks 0-7")
   <p align = "center">
  <img src="/5-fold_cross_validation.png" width="500">
   </p>
+  
+<details><summary><b>CODE</b> Click me!</summary>
  
  ```python
 import pandas as pd
@@ -78,6 +80,9 @@ BestModel.fit(X_train, y_train)
 print(BestModel.score(X_train, y_train))
 > 1.0
 ```
+
+</details> 
+
 - The perfect score of 1.0 is indicative of overfitting, possibly as a result from tuning too many parameters.
 - Further GridSearchCV() methods only tuned 1 or 2 parameters with more appropriate results.  
 
@@ -85,6 +90,8 @@ print(BestModel.score(X_train, y_train))
 <p align = "center">
 <img src="/svm.png" width="500"> <br />
   </p>
+  
+<details><summary><b>CODE</b> Click me!</summary>  
   
 ```python
 from sklearn import svm
@@ -114,6 +121,7 @@ print('The average f1 score across the iterations is ' + str(h/50000))
 > The average precision across the iterations is 0.8073479825729826
 > The average f1 score across the iterations is 0.7815214681103407
 ```
+</details>
 
 ## Results
 - Each classification model was analyzed using accuracy, precision, recall, and F1 scores.  The last 3 were especially important as the classes were imbalanced as seen below: <br />
